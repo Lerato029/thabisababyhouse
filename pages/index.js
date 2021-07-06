@@ -100,7 +100,7 @@ const Home = () => {
           </div>
         
       </div>
-      <div id="paypal-button-container"></div>
+      
       <div className="card p-0">
         <div className="row g-0 p-0">
           <div className="col-md-8">
