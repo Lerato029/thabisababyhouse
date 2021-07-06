@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 //=====================================================READ
 export const getData = async (url, token) => {
 
-  const res = await fetch(`http://localhost:3000/api/${url}`, {
+  const res = await fetch(`https://thabisa-baby-house.vercel.app/api/${url}`, {
     method: "GET",
     headers: {
       Authorization: token,
@@ -19,7 +19,7 @@ export const getData = async (url, token) => {
 //=====================================================CREATE
 export const postData = async (url, post, token) => {
  
-  const res = await fetch(`http://localhost:3000/api/${url}`, {
+  const res = await fetch(`https://thabisa-baby-house.vercel.app/api/${url}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const postData = async (url, post, token) => {
 
 //=====================================================UPDATE
 export const putData = async (url, post, token) => {
-  const res = await fetch(`http://localhost:3000/api/${url}`, {
+  const res = await fetch(`https://thabisa-baby-house.vercel.app/api/${url}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
