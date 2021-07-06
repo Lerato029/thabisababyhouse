@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h2>
+    Subscribe to our newsletter
+  </h2>
+  <div
+    className="mb-3"
+  >
+    <label
+      className="form-label"
+      for="exampleInputEmail1"
+    >
+      Email address
+    </label>
+    <input
+      aria-describedby="emailHelp"
+      className="form-control"
+      id="exampleInputEmail1"
+      type="email"
+    />
+    <div
+      className="form-text"
+      id="emailHelp"
+    >
+      We'll never share your email with anyone else.
+    </div>
+  </div>
+  <div>
+    Get updated on the baby house
+  </div>
+  <button
+    className="btn btn-primary"
+    type="submit"
+  >
+    Subscribe
+  </button>
+</form>
+`;

@@ -1,0 +1,37 @@
+/* black #040505  grey #523d538a
+ purple #B82EC1 turq #04C1FB green #06FA04*/
+/* background: rgba(0, 0, 0, 0.253); */
+section {
+  background: white;
+  
+}
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+  object-position: 0 20%;
+}
+
+/* =============================================importing css=========================================== */
+@import url("./loading.css");
+
+@import url("./product.css");
+
+@import url("./profile.css");
+
+@import url("./create_products.css");

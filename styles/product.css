@@ -1,0 +1,34 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  margin: 18px 0;
+}
+
+.products .card {
+  margin: 10px auto;
+}
+
+.products .card-img-top {
+  height: 270px;
+  width: 100%;
+}
+
+.products .card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.products .card-text {
+  height: 70px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* =================Product Details================== */
+.product_details .img-thumbnail.active {
+  border-color: #b82ec1;
+  padding: 3px;
+}
