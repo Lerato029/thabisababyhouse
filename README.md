@@ -7,7 +7,10 @@
 
 [System Architectre](#architecture)  
 [System Requirements](#requirements) 
-[Wireframes](#wireframes) 
+[Configuration](#config)
+[Environment Variables](#hide)
+[Manual](#manual)
+[Testing](#test)
 [Security](#security)
 [Deployment](#deployed) 
 [Credits](#credits)  
@@ -34,12 +37,12 @@ The functional requirements are as follows:
 
  * Login/sign-up functionality
  * Users should be able to add, delete products for sale to their orders.
- * Users should be able to make online payments through PayPal or confirm order and pay through EFT.
+ * Users should be able to make online payments through PayPal or confirm order and pay through cash.
  * Users should have a list of previous orders/payments made through the website.
  * Users should be able to create, updated, and view their profiles on the website.
  * Users should be able to apply to volunteer to help.
  * There should be an admin account for the governing body of the baby house to be able to make changes to the information served on the website.
- * Admin account should allow a user to create, update or delete products available to be purchased or needed for donations.
+ * Admin account should allow a user to create, update or delete products available to be purchased.
  * Admin account should allow a user to change delivery statuses for orders made by other users.
  * The Admin account should allow the user to make changes to the other user's accounts as well as allocate admin roles to other users who might be a part of the staff.
 
@@ -65,6 +68,22 @@ The non-functional requirements are as follows:
 ![07](https://user-images.githubusercontent.com/79574031/120489389-e1396a80-c3b7-11eb-84a2-3d933c79ba84.PNG)
 ![08](https://user-images.githubusercontent.com/79574031/120489402-e4345b00-c3b7-11eb-9752-f29bf8b20d1b.PNG)
 
+
+<a name="config"/>  
+
+## `Configuration`
+#### JSON WEB Tokens
+
+<a name="manual/>  
+
+## `Manual`
+#### JSON WEB Tokens
+         
+<a name="test/>  
+
+## `Running Tests`
+#### JSON WEB Tokens
+         
 <a name="security"/>  
 
 ## `Security`
@@ -72,9 +91,17 @@ the structure of the application allows for safety of sensitive information and 
 
 #### Hashing
 passwords are not just saved in their raw state but are hashed with bcrypt for better security.
+![hashing](https://user-images.githubusercontent.com/79574031/124820964-69d69800-df6e-11eb-8394-dc0713a4fb37.PNG)
+![timing attacks](https://user-images.githubusercontent.com/79574031/124830294-f33f9780-df79-11eb-8bdb-51656d3d64d0.PNG)
+
 
 #### JSON WEB Tokens
 Tokens generated with jwt to authenticate users in the auth middlware function.
+![auth middleware](https://user-images.githubusercontent.com/79574031/124830010-9d6aef80-df79-11eb-9d77-04e2e4fc46c5.PNG)
+
+#### MongoDB
+MongoDB has secure features allowing to retrieve data from database but excluding sensitive information like passwords
+![Uploading exlude passwords when reading data from users collections.PNG…]()
 
 
 <a name="deployment"/>  
@@ -88,40 +115,3 @@ Link to deployed app can be found [here](https://thabisa-baby-house.vercel.app/)
 ## `Credits`
 
  * Author: [Lerato Mokgwabona](https://github.com/Lerato029)
-
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
