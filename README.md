@@ -60,7 +60,7 @@ The non-functional requirements are as follows:
 ![02](https://user-images.githubusercontent.com/79574031/120489281-ce269a80-c3b7-11eb-8d03-494dbdde2d07.PNG)
 ![03](https://user-images.githubusercontent.com/79574031/120489310-d2eb4e80-c3b7-11eb-9a13-ebe5eb7f5a49.PNG)
 ![04](https://user-images.githubusercontent.com/79574031/120489324-d67ed580-c3b7-11eb-81fd-e7b23ba9a8b6.PNG)
-![05](https://user-images.githubusercontent.com/79574031/120489343-d979c600-c3b7-11eb-98aa-b0771976f310.PNG)
+![image](https://user-images.githubusercontent.com/79574031/124814889-d483d580-df66-11eb-99dd-0302c3c54b9d.png)
 ![06](https://user-images.githubusercontent.com/79574031/120763986-0c3ad000-c518-11eb-98da-2b352c0212cf.PNG)
 ![07](https://user-images.githubusercontent.com/79574031/120489389-e1396a80-c3b7-11eb-84a2-3d933c79ba84.PNG)
 ![08](https://user-images.githubusercontent.com/79574031/120489402-e4345b00-c3b7-11eb-9752-f29bf8b20d1b.PNG)
