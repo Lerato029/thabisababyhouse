@@ -226,7 +226,9 @@ Make sure server is running and on a different terminal run `npm run test` and t
 -Snapshot test to see if subscribe form renders correctly
 -A API Route Unit Test testing the mailList module that adds users to the mailing list
 -Client Module Unit Test testing getDate module that sends GET requests to REST API
-         
+ ![001_make sure you run app first](https://user-images.githubusercontent.com/79574031/124840471-5a197c80-df8b-11eb-83f1-1ad5487c9d07.PNG)
+![run tests](https://user-images.githubusercontent.com/79574031/124840479-5ab21300-df8b-11eb-998b-c6dead91f6d2.PNG)
+        
 <a name="security"/>  
 
 ## `Security`
@@ -259,7 +261,7 @@ Link to deployed app can be found [here](https://thabisa-baby-house.vercel.app/)
 
  * Author: [Lerato Mokgwabona](https://github.com/Lerato029)
 
-References
+#### References
 Hovhannisyan, R., 2020. How to validate an email address in JavaScript. [Online] 
 Available at: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
 [Accessed 6 July 2021].
