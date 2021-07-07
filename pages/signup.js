@@ -1,48 +1,78 @@
+/* =========================================Sign Up Page================================================= */
+//next elements
 import Head from "next/head";
+
+//routing
 import Link from "next/link";
-import { useState, useContext, useEffect } from "react";
-import valid from "../utils/valid";
-import { DataContext } from "../store/GlobalState";
-import { postData } from "../utils/fetchData";
 import { useRouter } from "next/router";
 
+//importing react hooks
+import { useState, useContext } from "react";
+
+//validation module
+import valid from "../utils/valid";
+
+//context provided for website
+import { DataContext } from "../store/GlobalState";
+
+//POST request module
+import { postData } from "../utils/fetchData";
+
+
 const SignUp = () => {
+  //sign up data object as userData default values
   const initialState = { name: "", email: "", password: "", c_password: "" };
   const [userData, setUserData] = useState(initialState);
 
   //destructuring userData object properties
   const { name, email, password, c_password } = userData;
 
-  const { state, dispatch } = useContext(DataContext);
-  const { auth } = state;
+  //getting dispatch from global state
+  const { dispatch } = useContext(DataContext);
+
+
+  //initializing router
   const router = useRouter();
 
+  /* --------------------------------------------------------------------Main Functionality */
+  //storing data from user
   const handleChangeInput = (e) => {
+    //destructuring input data
     const { name, value } = e.target;
+    //update state property
     setUserData({ ...userData, [name]: value });
-    dispatch({ type: "NOTIFY", payload: {} });
   };
 
+  /* ===================================================================CREATE */
   const handleSubmit = async (e) => {
+    //prevent page refresh on submit
     e.preventDefault();
+
+    //call module and see if error is returned
     const errMessage = valid(name, email, password, c_password);
     if (errMessage)
       return dispatch({ type: "NOTIFY", payload: { error: errMessage } });
+
+    //error not returned so display loading component
     dispatch({
       type: "NOTIFY",
       payload: { loading: true },
     });
+
+    //make post request to server to signup passing userData as payload
     const res = await postData("auth/signup", userData);
-    console.log(res)
+    
+    //check if error
     if (res.err) {
       return dispatch({ type: "NOTIFY", payload: { error: res.error } });
     } else {
+      //direct user back and notify success in signing up!
       router.back();
-      return dispatch({ type: "NOTIFY", payload: { success: res.message } });
+      return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
     }
   };
 
-  
+  /* JSX with */
   return (
     <div className="container">
       <Head>

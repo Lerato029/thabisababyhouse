@@ -1,5 +1,9 @@
+/*=====================================================Order Model============================ */
+//require mongoose to be able to create model
 import mongoose from "mongoose";
 
+
+//referencing user for each order placed 
 const orderSchema = new mongoose.Schema(
   {
     user: {
@@ -27,5 +31,6 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
+//export and export model/collection in database
 let Dataset = mongoose.models.order || mongoose.model("order", orderSchema);
 export default Dataset;

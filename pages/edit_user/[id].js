@@ -1,3 +1,5 @@
+/* =========================================Edit User Page================================================= */
+//import statements
 import Head from "next/head";
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../store/GlobalState";
@@ -6,34 +8,53 @@ import { useRouter } from "next/router";
 import { patchData } from "../../utils/fetchData";
 
 const EditUser = () => {
+  //initialize router
   const router = useRouter();
+
+  //query string
   const { id } = router.query;
+
+  //global state
   const { state, dispatch } = useContext(DataContext);
   const { auth, users } = state;
+
+  //local state properties
   const [editUser, setEditUser] = useState([]);
   const [checkAdmin, setCheckAdmin] = useState(false);
   const [num, setNum] = useState(0);
 
+
   useEffect(() => {
     users.forEach((user) => {
-      //iterate the users array and get the one matching the query string id
+      //iterate the users array from global state and get the one matching the query string id
       if (user._id === id) {
+        //user to be edited
         setEditUser(user);
+
+        //check if user is admin
         setCheckAdmin(user.role === "admin" ? true : false);
       }
     });
   }, [users]);
 
+
+  //called when user checks button
   const handleChangeCheck = () => {
     setCheckAdmin(!checkAdmin);
     setNum(num + 1);
   };
 
+  //=====================================================================PATCH
   const handleUpdate = () => {
     let role = checkAdmin ? "admin" : "user";
+
     //check if check box has been edited
     if (num % 2 !== 0) {
+
+      //request being processed
       dispatch({ type: "NOTIFY", payload: { loading: true } });
+
+      //PATCH Request to API made
       patchData(`user/${editUser._id}`, { role }, auth.token).then((res) => {
         if (res.err)
           return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -48,11 +69,15 @@ const EditUser = () => {
             "ADD_USERS"
           )
         );
+
+        //success!
         return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
       });
     }
   };
 
+
+  //display user data and check box to set user to admin
   return (
     <div className=" edit_container my-3 w-100">
       <Head>

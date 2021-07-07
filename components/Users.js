@@ -36,8 +36,8 @@ const Users = () => {
                 src={user.avatar}
                 alt={user.avatar}
                 style={{
-                  width: "40px",
-                  height: "40px",
+                  width: "20px",
+                  height: "20px",
                   overflow: "hidden",
                   objectFit: "cover",
                 }}
@@ -50,19 +50,15 @@ const Users = () => {
               {user.role === "admin" ? (
                 user.root ? (
                   <i
-                    className="fas fa-check"
-                    style={{
-                      color: "#b72ec1",
-                    }}
+                    className="fas fa-check text-success"
+                    
                   >
                     Root
                   </i>
                 ) : (
                   <i
-                    className="fas fa-check"
-                    style={{
-                      color: "#b72ec1",
-                    }}
+                    className="fas fa-check text-success"
+                    
                   ></i>
                 )
               ) : (
@@ -115,101 +111,7 @@ const Users = () => {
           </tr>
         ))}
       </tbody>
-      {/* <tbody>
-        {users.map((user, index) => (
-          <tr key={user.id} style={{ cursor: "pointer" }}>
-            <td >{index + 1}</td>
-            <td >{user._id}</td>
-            <td >
-              <img
-                src={user.avatar}
-                alt={user.avatar}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  overflow: "hidden",
-                  objectFit: "cover",
-                }}
-              />
-            </td>
-            <td >{user.name}</td>
-            <td >{user.email}</td>
-            <td >
-              {user.role === "admin" ? (
-                user.root ? (
-                  <i
-                    className="fas fa-check"
-                    style={{
-                      color: "#b72ec1",
-                    }}
-                  >
-                    Root
-                  </i>
-                ) : (
-                  <i
-                    className="fas fa-check"
-                    style={{
-                      color: "#b72ec1",
-                    }}
-                  ></i>
-                )
-              ) : (
-                <i className="fas fa-times"></i>
-              )}
-            </td>
-            <td >
-              <Link
-                href={
-                  (auth.user.root && auth.user.email) || user.email
-                    ? `/edit_user/${user._id}`
-                    : "#!"
-                }
-              >
-                <a>
-                  <i className="fas fa-edit  text-secondary" title="Edit"></i>
-                  {"  "}
-                </a>
-              </Link>
 
-              {(auth.user.root && auth.user.email) !== user.email ? (
-                <i
-                  className="fas fa-trash-alt text-danger"
-                  title="Delete"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onClick={() =>
-                    dispatch({
-                      type: "ADD_MODAL",
-                      payload: {
-                        data: users,
-                        id: user._id,
-                        title: user.name,
-                        type: "ADD_USERS",
-                      },
-                    })
-                  }
-                ></i>
-              ) : (
-                <i
-                  className="fas fa-trash-alt text-danger ml-2"
-                  title="Delete"
-                  onClick={() =>
-                    dispatch({
-                      type: "ADD_MODAL",
-                      payload: {
-                        data: users,
-                        id: user._id,
-                        title: user.name,
-                        type: "ADD_USERS",
-                      },
-                    })
-                  }
-                ></i>
-              )}
-            </td>
-          </tr>
-        ))}
-      </tbody>  */}
     </table>
   );
 };

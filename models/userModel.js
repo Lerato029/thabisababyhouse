@@ -1,3 +1,5 @@
+/*====================================================Model For Users in database============================ */
+//require mongoose to be able to create model
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
@@ -34,5 +36,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+//export and export model/collection in database
 let Dataset = mongoose.models.user || mongoose.model("user", userSchema);
 export default Dataset;

@@ -23,7 +23,7 @@ const auth = async (req, res) => {
   //else search users by their id
   const user = await Users.findOne({ _id: decoded.id });
 
-  //return user's id, role and weather they are the superuser/root
+  //return user's id, role and whether they are the superuser/root
   return { id: user._id, role: user.role, root: user.root };
 };
 

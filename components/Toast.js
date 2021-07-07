@@ -1,5 +1,6 @@
 
-
+/* ============================================Loading Component================================== */
+//Notify child component passing props for displaying message, defining background and function
 const Toast = ({ message, handleShow, bgColor }) => {
   return (
     <div

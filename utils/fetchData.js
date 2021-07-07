@@ -1,12 +1,16 @@
-/* =============================================CLIENT HTTP REQUESTS TO API================================== */
+/* =============================================CLIENT HTTP REQUESTS TO REST API================================== */
+//function for making HTTP Requests
 const fetch = require("node-fetch");
 
-
+/* Below are modules for making CRUD requests where:
+-api route is passed 
+-HTTP req method described
+-token to authorize 
+-body for POST,PUT & PATCH reqs*/
 
 //=====================================================READ
 export const getData = async (url, token) => {
-
-  const res = await fetch(`https://thabisa-baby-house.vercel.app/api/${url}`, {
+  const res = await fetch(`http://localhost:3000/api/${url}`, {
     method: "GET",
     headers: {
       Authorization: token,
@@ -18,8 +22,7 @@ export const getData = async (url, token) => {
 
 //=====================================================CREATE
 export const postData = async (url, post, token) => {
- 
-  const res = await fetch(`https://thabisa-baby-house.vercel.app/api/${url}`, {
+  const res = await fetch(`http://localhost:3000/api/${url}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,10 +34,9 @@ export const postData = async (url, post, token) => {
   return data;
 };
 
-
 //=====================================================UPDATE
 export const putData = async (url, post, token) => {
-  const res = await fetch(`https://thabisa-baby-house.vercel.app/api/${url}`, {
+  const res = await fetch(`http://localhost:3000/api/${url}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

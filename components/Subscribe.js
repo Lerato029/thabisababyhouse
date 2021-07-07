@@ -21,18 +21,16 @@ const Subscribe = () => {
     const res = await postData("subscribe", { email: email.current.value });
 
     //check if an error is returned
-    const { error } = res;
-
-    if (error) {
+    if (res.err) {
       //message to be read to user
-      setMessage(error);
+      setMessage(err);
       return;
     }
 
     //else we success and reset email value
     email.current.value = "";
     //success msg to client
-    setMessage("Great! Thank you for subscribing!");
+    setMessage(res.msg);
   };
 
   /* JSX Featuring a form to subscribe to mailing list*/
@@ -48,6 +46,7 @@ const Subscribe = () => {
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          required
           ref={email}
         />
         <div id="emailHelp" className="form-text">

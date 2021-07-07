@@ -1,3 +1,5 @@
+/* =========================================Sign In Page================================================= */
+//import statements
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useContext, useEffect} from "react";
@@ -23,6 +25,7 @@ const SignIn = () => {
     dispatch({ type: "NOTIFY", payload: {} });
   };
 
+  /* =====================================================POST  */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -49,9 +52,12 @@ const SignIn = () => {
     }
   };
 
+  //take user back if auth is assigned value on login
   useEffect(() => {
     if (Object.keys(auth).length !== 0) router.back();
   }, [auth]);
+
+  //render form
   return (
     <div className="container-fluid ">
       <Head>

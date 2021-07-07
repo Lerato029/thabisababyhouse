@@ -1,9 +1,6 @@
-/* black #040505  grey #523d538a
- purple #B82EC1 turq #04C1FB green #06FA04*/
-/* background: rgba(0, 0, 0, 0.253); */
+/* ===========================================css for all pages========================== */
 section {
-  background: white;
-  
+  background: white; 
 }
 body {
   padding: 0;
@@ -28,6 +25,7 @@ img {
 }
 
 /* =============================================importing css=========================================== */
+/* no need to import to pages individually */
 @import url("./loading.css");
 
 @import url("./product.css");

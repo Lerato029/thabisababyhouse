@@ -1,8 +1,9 @@
-//returns object and arrays
+//actions to identify changes to global state
 import { ACTIONS } from "./Actions";
 
-//
+//function for determining changes made to global state variables
 const reducers = (state, action) => {
+  //check which action is used and update state property
   switch (action.type) {
     case ACTIONS.NOTIFY:
       return {
@@ -45,8 +46,12 @@ const reducers = (state, action) => {
         enlistApps: action.payload,
       };
     default:
+
+      //no actions identified
       return state;
   }
 };
 
+
+//export module
 export default reducers;

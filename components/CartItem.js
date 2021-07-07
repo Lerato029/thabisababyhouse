@@ -1,6 +1,10 @@
+/* ==================================================Cart item Component================================== */
 import Link from "next/link";
+
+//action modules for updating quantity items
 import { increase, decrease } from "../store/Actions";
 
+//passing props: cart item, dispatch and state property
 const CartItem = ({ item, dispatch, cart }) => {
   return (
     <tr>
@@ -19,7 +23,7 @@ const CartItem = ({ item, dispatch, cart }) => {
           </Link>
         </h5>
 
-        <h6>R{item.quantity * item.price}.00</h6>
+        <h6>${item.quantity * item.price}.00</h6>
         {item.inStock > 0 ? (
           <p className="mb-1">In Stock: {item.inStock}</p>
         ) : (

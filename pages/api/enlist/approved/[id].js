@@ -1,9 +1,17 @@
+/* ================================API Route for handling ENLIST APPLICATION PATCH Requests===========================  */
+//DB interaction
 import connectDB from "../../../../utils/connectDB";
 import Aps from "../../../../models/enlistModel";
+
+//auth middleware
 import auth from "../../../../middleware/auth";
 
+
+//connect...
 connectDB();
 
+
+//calling module
 export default async (req, res) => {
   switch (req.method) {
     case "PATCH":
@@ -16,7 +24,7 @@ export default async (req, res) => {
 const approvedAp = async (req, res) => {
   try {
 
-    //authentication: check if user is admin
+    //authenticate user
     const result = await auth(req, res);
 
     //return error if not admin
@@ -26,13 +34,15 @@ const approvedAp = async (req, res) => {
     //get query for database interaction from URL
     const { id } = req.query;
 
-    //update to approved 
+    //update to approved  send msg and status
     await Aps.findOneAndUpdate(
       { _id: id },
       {
         approved: true,
       }
     );
+
+    //send msg and update to client
     res.json({
       msg: "Application updated to approved",
       result: {
@@ -40,6 +50,7 @@ const approvedAp = async (req, res) => {
       },
     });
   } catch (err) {
+    //server err
     return res.status(500).json({ err: err.message });
   }
 };

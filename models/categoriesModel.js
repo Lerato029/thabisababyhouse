@@ -15,7 +15,7 @@ const CategorySchema = new mongoose.Schema(
   }
 );
 
-//store model in Dataset variable then export it
+//export and export model/collection in database
 let Dataset =
   mongoose.models.categories || mongoose.model("categories", CategorySchema);
 export default Dataset;

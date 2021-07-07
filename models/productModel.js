@@ -1,4 +1,7 @@
+/*=====================================================Product Model for products sold on the website============================ */
+//mongoose for database interaction
 import mongoose from "mongoose";
+
 
 const productSchema = new mongoose.Schema(
   {
@@ -46,6 +49,8 @@ const productSchema = new mongoose.Schema(
   }
 );
 
+
+//export and export model/collection in database
 let Dataset =
   mongoose.models.product || mongoose.model("product", productSchema);
 export default Dataset;

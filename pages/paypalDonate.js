@@ -1,8 +1,11 @@
+/* =========================================PAYPAL BUTTON================================================= */
 //https://developer.paypal.com/classic-home/
 
+
+//IMPORT REACT HOOKS
 import { useEffect, useRef} from "react";
 
-
+//total passed from parent
 const paypalBtn = ({ total }) => {
   const refPay = useRef();
 
@@ -30,13 +33,13 @@ const paypalBtn = ({ total }) => {
             payload: { loading: true },
           });
           return actions.order.capture().then(function (details) {
-            // This function shows a transaction success message to your buyer.
            
+            //payment success!
             return dispatch({
               type: "NOTIFY",
               payload: { success: `Transaction completed by ${details.payer.name.given_name}` },
             });
-            /* alert("Transaction completed by " + details.payer.name.given_name); */
+
           });
         },
       })

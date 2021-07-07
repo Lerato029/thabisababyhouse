@@ -1,11 +1,15 @@
-import Link from "next/link";
-
+/* ============================================Enlist Application Details Component================================== */
+//PATCH req module
 import { patchData } from "../utils/fetchData";
+
+//update action module
 import { updateItem } from "../store/Actions";
 
 const EnlistApDetail = ({ enlistApDetail, state, dispatch }) => {
-  console.log(enlistApDetail)
+  //state properties used
   const { auth, enlistApps } = state;
+
+  /* =========================================================PATCH */
   const handleApproved = (enlistAp) => {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
@@ -14,7 +18,7 @@ const EnlistApDetail = ({ enlistApDetail, state, dispatch }) => {
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
       //destructuring response result
-      console.log(res)
+  
       const { approved } = res.result;
       //call the update item function
       dispatch(
@@ -32,7 +36,9 @@ const EnlistApDetail = ({ enlistApDetail, state, dispatch }) => {
     });
   };
 
+  //auth state property not yet updated return null
   if (!auth.user) return null;
+  /* else display application details from parent */
   return (
     <>
       {enlistApDetail.map((enlistAp) => (

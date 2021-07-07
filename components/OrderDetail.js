@@ -1,21 +1,36 @@
+/* ============================================OrderDetail Component================================== */
+//routing
 import Link from "next/link";
+
+//online payments
 import PaypalBtn from "../pages/paypalBtn";
+
+//PATCH req module
 import { patchData } from "../utils/fetchData";
+
+//action update module
 import { updateItem } from "../store/Actions";
 
 const OrderDetail = ({ orderDetail, state, dispatch }) => {
-  console.log(orderDetail)
+  //state properties used
   const { auth, orders } = state;
+
+  //==================================================================Main Functionality
+  /* For admin only */
   const handleDelivered = (order) => {
+    //notify user req is being processed
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
-    //make PATCH request to change order to delivered
+    //PATCH request to change order to delivered, pass null as body
     patchData(`order/delivered/${order._id}`, null, auth.token).then((res) => {
+      //check if err returned
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
+
       //destructuring response result
       const { paid, dateOfPayment, method, delivered } = res.result;
-      //call the update item function
+
+      //call the update item function to update state
       dispatch(
         updateItem(
           orders,
@@ -30,10 +45,16 @@ const OrderDetail = ({ orderDetail, state, dispatch }) => {
           "ADD_ORDERS"
         )
       );
+
+      //then notify of successful update
       return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
     });
   };
+
+  //return null if auth not updated yet
   if (!auth.user) return null;
+
+  //else display order details from parent 
   return (
     <>
       {orderDetail.map((order) => (

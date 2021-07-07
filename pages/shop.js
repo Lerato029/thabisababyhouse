@@ -1,9 +1,13 @@
+/* =========================================Sign Up Page================================================= */
+//import statements
 import { getData } from "../utils/fetchData";
 import { useState, useContext } from "react";
 import { DataContext } from "../store/GlobalState";
 import Head from "next/head";
 import ProductItem from "../components/product/ProductItem";
 import Link from "next/link";
+
+
 const Shop = (props) => {
   const [products, setProducts] = useState(props.products);
   const [check, setCheck] = useState(false);
@@ -21,7 +25,7 @@ const Shop = (props) => {
     products.forEach((product) => {
       product.checked = !check;
     });
-    console.log(products);
+
     setProducts([...products]);
     setCheck(!check);
   };
@@ -136,12 +140,9 @@ const Shop = (props) => {
   );
 };
 
-/* export an async function called getServerSideProps from a page, 
-Next.js will pre-render this page on each request using the data 
-returned by getServerSideProps. */
+//prerender data passed as props to shop component
 export async function getServerSideProps() {
   const res = await getData("product");
-  console.log(res);
   return {
     props: {
       products: res.products,

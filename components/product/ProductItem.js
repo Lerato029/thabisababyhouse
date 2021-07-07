@@ -1,12 +1,27 @@
+/* ==================================================Product Component================================== */
+//routing
 import Link from "next/link";
+
+//react hook for context
 import { useContext } from "react";
+
+//import data contest provider
 import { DataContext } from "../../store/GlobalState";
+
+//import action module
 import { addToCart } from "../../store/Actions";
 
+//component and props
 const ProductItem = ({ product, handleChangeInput }) => {
+  //retrieve state and dispatch to update state
   const { state, dispatch } = useContext(DataContext);
+
+  //state properties used 
   const { cart, auth } = state;
 
+
+  //user features where one can:
+  //- view more details & add item to cart
   const userLink = () => {
     return (
       <>
@@ -27,6 +42,9 @@ const ProductItem = ({ product, handleChangeInput }) => {
     );
   };
 
+
+  //Admin features allow user to:
+  //- be directed to page for updating product & delete product
   const adminLink = () => {
     return (
       <>
@@ -58,6 +76,7 @@ const ProductItem = ({ product, handleChangeInput }) => {
     );
   };
 
+  /* Card displaying product details from parent - includes check button for admin*/
   return (
     <div className="card bg-dark" style={{ width: "18rem" }}>
       {auth.user && auth.user.role === "admin" && (

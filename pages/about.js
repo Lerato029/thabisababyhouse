@@ -1,5 +1,8 @@
+/* =========================================About Page ================================================= */
+//next elements
 import Head from "next/head";
 
+//BACKGROUND IMAGES
 const bgURL1 =
   "https://post.medicalnewstoday.com/wp-content/uploads/2020/08/black_parent_and_child_holding_hands_closeup-1200x628-facebook-1200x628.jpg";
 const bgURL3 =
@@ -10,6 +13,8 @@ const bgURL4 =
   "https://cdn1.photostockeditor.com/c/1512/baby-sleeping-baby-on-stroller-furniture-furniture-image.jpg";
 
 const About = () => {
+
+  // array with containing data for each staff member rendered in a card
   const staff = [
     {
       name: "Kim",
@@ -24,6 +29,8 @@ const About = () => {
       img: "https://cdn2.photostockeditor.com/c/2312/people-smiling-woman-wearing-turban-person-person-image.jpg",
     },
   ];
+
+  //array with containing data for each sponsor member rendered in a card
   const sponsors = [
     {
       name: "Jacks Paint",

@@ -1,9 +1,13 @@
+/* ================================API Route for handling ORDER DELIVER PATCH Requests===========================  */
+//DB interaction and auth middleware
 import connectDB from "../../../../utils/connectDB";
 import Orders from "../../../../models/orderModel";
 import auth from "../../../../middleware/auth";
 
+//connect
 connectDB();
 
+//call modules based on request method
 export default async (req, res) => {
   switch (req.method) {
     case "PATCH":
@@ -45,6 +49,7 @@ const deliveredOrder = async (req, res) => {
         },
       });
     } else {
+      
       //update to delivered for cash payments
       await Orders.findOneAndUpdate(
         { _id: id },

@@ -1,3 +1,5 @@
+/* =========================================Profile Page================================================= */
+//next elements
 import Head from "next/head";
 import { useState, useContext, useEffect } from "react";
 import Link from "next/link";
@@ -47,8 +49,11 @@ const Profile = () => {
     if (name !== auth.user.name || avatar) updateInfo();
   };
 
+  //================================================================PACTH REQUEST
   const updatePassword = () => {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
+
+    //Req to update password
     patchData("user/resetPassword", { password }, auth.token).then((res) => {
       if (res.err)
         return dispatch({ type: "NOTIFY", payload: { error: res.err } });
@@ -102,6 +107,8 @@ const Profile = () => {
 
   //check to prevent error when page refreshes
   if (!auth.user) return null;
+
+  //return profile and tables or one table
   return (
     <div className="profile_container h-100 container-fluid ">
       <Head>

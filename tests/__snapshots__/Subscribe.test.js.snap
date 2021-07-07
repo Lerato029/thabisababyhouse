@@ -12,7 +12,7 @@ exports[`renders correctly 1`] = `
   >
     <label
       className="form-label"
-      for="exampleInputEmail1"
+      htmlFor="exampleInputEmail1"
     >
       Email address
     </label>
@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
     Get updated on the baby house
   </div>
   <button
-    className="btn btn-primary"
+    className="btn btn-success"
     type="submit"
   >
     Subscribe

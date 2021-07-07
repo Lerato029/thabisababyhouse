@@ -1,29 +1,47 @@
-import React, { useContext } from "react";
+/* ============================================Navbar Component================================== */
+/* Data context*/
+import { useContext } from "react";
+import { DataContext } from "../store/GlobalState";
+
+//routing
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { DataContext } from "../store/GlobalState";
+
+//where refresh token is stored
 import Cookie from "js-cookie";
+
+//import logo
 const logo = "images/logo.png";
 
-export default function NavBar() {
+const NavBar = () => {
+  //initiate router
   const router = useRouter();
+
+  //state and dispatch to update it
   const { state, dispatch } = useContext(DataContext);
 
+  //state property
   const { auth } = state;
 
+  //==================================================================Main Functionality
+  //function to change className of links
   const isActive = (r) => {
+    //if on same page as link href
     if (router.pathname === r) {
+      //assign className:
       return "nav-link active";
     } else {
+      //assign className:
       return "nav-link";
     }
   };
 
   const handleLogOut = () => {
-    //removing data from local storage and cookies to og user out
+    //removing data from local storage and cookies to on user out
     Cookie.remove("refreshtoken", { path: "api/auth/accessToken" });
     localStorage.removeItem("firstLogin");
 
+    //reset auth state property
     dispatch({ type: "AUTH", payload: {} });
 
     //notification of successful log out
@@ -31,19 +49,18 @@ export default function NavBar() {
     return router.push(`/`);
   };
 
+  //admin features - direct to create product page
   const adminRouter = () => {
     return (
       <>
-        
         <Link href="/create">
           <a className="dropdown-item">Create Product</a>
         </Link>
-        
       </>
     );
   };
 
-  //function returns the logged in nav item
+  //function returns the logged in nav item if admin feature above added too
   const loggedRouter = () => {
     return (
       <li className="nav-item dropdown">
@@ -86,6 +103,8 @@ export default function NavBar() {
       </li>
     );
   };
+
+  //navbar and links
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
@@ -158,4 +177,6 @@ export default function NavBar() {
       </div>
     </nav>
   );
-}
+};
+
+export default NavBar;

@@ -1,10 +1,14 @@
+/* ===========================================product main element on shop page styling========================== */
+/* main grid for cards */
 .products {
   display: grid;
+  /* each column width and spacing*/
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
   margin: 18px 0;
 }
 
+/* cards and child elements */
 .products .card {
   margin: 10px auto;
 }
@@ -17,6 +21,7 @@
 .products .card-title {
   overflow: hidden;
   text-overflow: ellipsis;
+  /* dont want title to wrap */
   white-space: nowrap;
 }
 
@@ -27,7 +32,7 @@
   -webkit-line-clamp: 3;
 }
 
-/* =================Product Details================== */
+/* =================Product Details Component================== */
 .product_details .img-thumbnail.active {
   border-color: #b82ec1;
   padding: 3px;

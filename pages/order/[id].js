@@ -1,14 +1,21 @@
+/* =========================================Order Details Page================================================= */
+//import statements
 import Head from "next/head";
 import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
 
+//child component
 import OrderDetail from "../../components/OrderDetail";
 
 const OrderDetails = () => {
+
+  //global state
   const { state, dispatch } = useContext(DataContext);
   const { auth, orders } = state;
 
+
+  //initialize router
   const router = useRouter();
 
   const [orderDetail, setOrderDetail] = useState([]);
@@ -21,6 +28,7 @@ const OrderDetails = () => {
   }, [orders]);
 
   if (!auth.user) return null;
+  //display application details
   return (
     <div className="my-3 container">
       <Head>

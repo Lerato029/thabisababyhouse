@@ -1,3 +1,5 @@
+/* =========================================Product Details Page================================================= */
+//import statements
 import Head from "next/head";
 import { useState, useEffect, useRef, useContext } from "react";
 import { getData } from "../../utils/fetchData";
@@ -6,18 +8,28 @@ import { addToCart } from "../../store/Actions";
 import { useRouter } from "next/router";
 
 const ProductDetails = (props) => {
+
+  //used to direct users back
   const router = useRouter();
 
+  //product from getServerSide props function
   const [product] = useState(props.product);
+
+  //stores index of image selected and used to push image to bigger display
   const [tab, setTab] = useState(0);
+
+
   const imgRef = useRef();
 
+  //global state
   const { state, dispatch } = useContext(DataContext);
   const { cart } = state;
 
+  //called each time an image is clicked on
   useEffect(() => {
     const pics = imgRef.current.children;
-    //loop to see which picture is currently selected and replace className
+    
+    //remove class active for images not active
     for (let x = 0; x < pics.length; x++) {
       pics[x].className = pics[x].className.replace(
         "active",
@@ -25,9 +37,12 @@ const ProductDetails = (props) => {
       );
     }
 
+    //loop to see which picture is currently selected and replace className
     pics[tab].className = "active img-thumbnail rounded";
   }, [tab]);
 
+
+  //displays product details
   return (
     <div className="my-3 container-sm">
       <button className="btn btn-dark" onClick={() => router.back()}>
@@ -84,8 +99,8 @@ const ProductDetails = (props) => {
   );
 };
 
+//get product and pass as props
 export async function getServerSideProps({ params: { id } }) {
-  console.log(id);
   const res = await getData(`product/${id}`);
   return {
     props: {

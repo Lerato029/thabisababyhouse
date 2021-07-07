@@ -5,7 +5,6 @@
   position: relative;
   margin: 20px auto;
   border: 1px solid #b72ec1;
-
   border-radius: 50%;
 }
 
@@ -18,12 +17,11 @@
 }
 
 .profile_container .col-md-2 {
-  /* height: 100%; */
   background: #b72ec111;
 }
 
 .profile_container thead {
-  background: #b72ec1ea;
+  background: #2e0331;
   color: white;
 }
 
@@ -40,8 +38,7 @@
 } */
 @media only screen and (max-width: 768px) {
   .profile_container .col-md-2 {
-   /*  height: 20%; */
-    background: #b72ec111;
+    background: white;
   }
 }
 .profile_container .profilePic span {

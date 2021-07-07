@@ -1,5 +1,8 @@
+/* =========================================Sign Up Page================================================= */
+//next elements
 import Head from "next/head";
 
+//images
 const bgURL1 =
   "https://c.pxhere.com/photos/e1/24/foot_baby_baby_feet_newborn_child_feet_infant_small-627869.jpg!d";
 const bgURL3 =
@@ -10,7 +13,7 @@ const bgURL4 =
   "https://p1.pxfuel.com/preview/700/927/770/baby-feet-children-small-tear-black-and-white.jpg";
 const logoURL = "images/logo.png";
 
-/* =========JSX Featuring JSX Sy */
+/* =========JSX Featuring JSX Styling */
 const Home = () => {
 
   //array width details of sponsors

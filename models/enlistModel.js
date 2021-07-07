@@ -23,6 +23,6 @@ const enlistSchema = new mongoose.Schema(
   }
 );
 
-//store model in Dataset variable then export it
+//export and export model/collection in database
 let Dataset = mongoose.models.enlist || mongoose.model("enlist", enlistSchema);
 export default Dataset;

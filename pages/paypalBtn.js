@@ -1,3 +1,5 @@
+/* =========================================Sign Up Page================================================= */
+//next elements
 //https://developer.paypal.com/classic-home/
 
 import { useEffect, useRef, useContext } from "react";
@@ -8,6 +10,8 @@ import { updateItem } from "../store/Actions";
 const paypalBtn = ({ order }) => {
   const refPay = useRef();
 
+
+  //global state
   const { state, dispatch } = useContext(DataContext);
   const { auth, orders } = state;
 
@@ -33,7 +37,7 @@ const paypalBtn = ({ order }) => {
             payload: { loading: true },
           });
           return actions.order.capture().then(function (details) {
-            // This function shows a transaction success message to your buyer.
+            //=======================================================PATCH REQUEST
             patchData(
               `order/payment/${order._id}`,
               { paymentId: details.payer.payer_id },
@@ -44,7 +48,8 @@ const paypalBtn = ({ order }) => {
                   type: "NOTIFY",
                   payload: { error: res.err },
                 });
-
+              
+              //UPDATE GLOBAL STATE
               dispatch(
                 updateItem(
                   orders,
@@ -59,6 +64,8 @@ const paypalBtn = ({ order }) => {
                   "ADD_ORDERS"
                 )
               );
+
+              //SUCCESS!
               return dispatch({
                 type: "NOTIFY",
                 payload: { success: res.msg },

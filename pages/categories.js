@@ -1,3 +1,5 @@
+/* =========================================Categories Page================================================= */
+//import statements
 import Head from "next/head";
 import { useContext, useState } from "react";
 import { DataContext } from "../store/GlobalState";
@@ -8,11 +10,14 @@ import { useRouter } from 'next/router'
 const Categories = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
+
+  //global state
   const { state, dispatch } = useContext(DataContext);
   const { categories, auth } = state;
 
   const router = useRouter()
 
+  /* =======================================================PUT request */
   const addCategory = async () => {
     if (auth.user.role !== "admin")
       return dispatch({

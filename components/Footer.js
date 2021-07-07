@@ -1,5 +1,11 @@
+/* ============================================Footer Component================================== */
+//subscribe form
 import Subscribe from "./Subscribe";
+
+//import image
 const logo = "images/logo.png";
+
+//footer component displayed on every page
 const Footer = () => {
   return (
     <footer className="container-fluid bg-dark text-white  bottom-0 ">

@@ -1,13 +1,19 @@
+/* =========================================CREATE PAGE - ALSO OPTIONAL DYNAMIC ROUTE================================================= */
+//next elements
 import Head from "next/head";
+import Link from "next/link";
+
+//ROUTING
+import { useRouter } from "next/router";
+
+//REACT HOOKS
 import { useState, useEffect, useContext } from "react";
 import { imageUpload } from "../../utils/imageUpload";
 import { postData, getData, putData } from "../../utils/fetchData";
 import { DataContext } from "../../store/GlobalState";
 
-import { useRouter } from "next/router";
-import Link from "next/link";
-
 const CreateProduct = () => {
+  //object to create default properties for product state variable
   const initialState = {
     title: "",
     price: 0,
@@ -16,90 +22,128 @@ const CreateProduct = () => {
     content: "",
     category: "",
   };
+
+  //add object to product state property
   const [product, setProduct] = useState(initialState);
+
+  /* destructuring product properties */
   const { title, price, inStock, description, content, category } = product;
+
+  //image array
   const [images, setImages] = useState([]);
+
+  //getting state and dispatch to update it
   const { state, dispatch } = useContext(DataContext);
-  const { categories, auth } = state;
-  /* ======================================================Router */
+  const { categories, auth } = state; //properties used
+
+  //initialize router and get query string
   const router = useRouter();
   const { id } = router.query;
+
+  //boolean to check if a product is being created or updated
   const [editProduct, setEditProduct] = useState(false);
 
+  /* ============================================================Main Functionality */
+  //==================================GET - CONDITIONAL
   useEffect(() => {
+    //check if query string added to route
     if (id) {
+      //then we know a product is being updated
       setEditProduct(true);
       //fetch data from database
       getData(`product/${id}`).then((res) => {
+        //add response data to state properties
         setProduct(res.product);
         setImages(res.product.images);
       });
     } else {
+      //no query then new product is being created
       setEditProduct(false);
+
+      //reset state properties
       setProduct(initialState);
       setImages([]);
     }
   }, [id]);
 
-  /* ==========================================Main Functionality=========================================== */
+  //UPDATE PRODUCT STATE PROPERTY
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
     dispatch({ type: "NOTIFY", payload: {} });
-    console.log(product);
-    console.log(images);
   };
 
+  //upload images
   const handleUpload = (e) => {
+    //reset notify
     dispatch({ type: "NOTIFY", payload: {} });
+
+    //declare variables
     let newImages = [];
     let count = 0;
     let err = "";
+
+    //store uploaded images in array
     const pics = [...e.target.files];
-    console.log(pics);
+
+    //user has to upload an image
     if (pics.length === 0)
       return dispatch({
         type: "NOTIFY",
         payload: { error: "No images uploaded!" },
       });
 
+    //loop through array
     pics.forEach((pic) => {
+      //restrict size
       if (pic.size > 1024 * 1024)
         return (err = "Image should be less than or 1mb in size");
 
+      //restrict type
       if (pic.type !== "image/jpeg" && pic.type !== "image/png")
         return (err = "Please upload a jpeg or png image");
 
       //add one to count variable
       count += 1;
 
-      //make sure not more than 5 images are added
+      //make sure not more than 5 images are uploaded and push image to array
       if (count <= 5) newImages.push(pic);
+
+      //loop ends and the array is returned
       return newImages;
     });
 
+    //check if error is assigned a value
     if (err)
       return dispatch({
         type: "NOTIFY",
         payload: { error: err },
       });
+
+    //make sure not more than 5 images are added and push image to array
     const imgCount = images.length;
     if (imgCount + newImages.length > 5)
       return dispatch({
         type: "NOTIFY",
         payload: { error: "You can select up to 5 images!" },
       });
+    
+    //else append uploaded images to state property
     setImages([...images, ...newImages]);
   };
 
+
+  //================================PUT/POST - CONDITIONAL
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("called");
+    //only admin can create/edit product 
     if (auth.user.role !== "admin")
       return dispatch({
         type: "NOTIFY",
         payload: { error: `You're not authorized!` },
       });
+
+    //all fields to be filled
     if (
       !title ||
       !price ||
@@ -113,18 +157,32 @@ const CreateProduct = () => {
         type: "NOTIFY",
         payload: { error: "Please fill out the whole form" },
       });
+
+
+    //notify user req is being processed
     dispatch({
       type: "NOTIFY",
       payload: { loading: true },
     });
 
+    //declare array
     let pictures = [];
+
+    //in images separate images with urls from ones without by
+    //storing them in different variables
     const picURL = images.filter((image) => !image.url);
     const oldPicURL = images.filter((image) => image.url);
 
+
+    //fetch request to cloudinary API with array with pics without URL
     if (picURL.length > 0) pictures = await imageUpload(picURL);
+
+    //response variable
     let res;
+
+    //if editing product PUT req...
     if (editProduct) {
+      //store response in res variable
       res = await putData(
         `product/${id}`,
         {
@@ -134,12 +192,15 @@ const CreateProduct = () => {
         auth.token
       );
 
+      //catch err
       if (res.err)
         return dispatch({
           type: "NOTIFY",
           payload: { error: res.err },
         });
     } else {
+      //else editing product false so POST req...
+      //store response in res variable
       res = await postData(
         "product",
         {
@@ -155,18 +216,28 @@ const CreateProduct = () => {
           payload: { error: res.err },
         });
     }
+
+    //Return res
     return dispatch({
       type: "NOTIFY",
       payload: { success: res.msg },
     });
   };
 
+  //delete image on button click
   const deleteImage = (index) => {
-    console.log("delete");
+    //store images in newArray so we ca edit it
     const newArr = [...images];
+
+    //use if to remove from array
     newArr.splice(index, 1);
+
+    //append new values to array
     setImages(newArr);
   };
+
+
+  //return form that displays data and images uploaded instantly
   return (
     <div className="my-3 container-sm create_products">
       <Head>
@@ -261,9 +332,6 @@ const CreateProduct = () => {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn btn-success px-4 my-4">
-            {editProduct ? "Update Product" : "Create Product"}
-          </button>
         </div>
         <div className="col-md-6 my-4">
           <div className="mb-3">
@@ -288,13 +356,16 @@ const CreateProduct = () => {
             ))}
           </div>
         </div>
+        <button type="submit" className="btn btn-success px-4 my-4">
+          {editProduct ? "Update Product" : "Create Product"}
+        </button>
       </form>
       <div className="row">
-      <Link href="/categories">
-        <button className="btn btn-dark text-capitalize">
-          create a new category here
-        </button>
-      </Link>
+        <Link href="/categories">
+          <button className="btn btn-dark text-capitalize">
+            create a new category here
+          </button>
+        </Link>
       </div>
     </div>
   );
