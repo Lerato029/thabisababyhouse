@@ -72,23 +72,165 @@ The non-functional requirements are as follows:
 <a name="config"/>  
 
 ## `Configuration`
-#### JSON WEB Tokens
+#### Installation
+Install app from [here](https://github.com/Lerato029/thabisababyhouse) into your local machine.
 
-<a name="manual/>  
+Then create .env.local file to add sensitive data
+![13 add vars](https://user-images.githubusercontent.com/79574031/124834124-816a4c80-df7f-11eb-9e1e-872a9cd97656.PNG)
+
+<a name="hide"/>  
+### Environment Variables
+#### PAYPAL_CLIENT_ID
+Sign up with paypal and create sandbox account [here](https://developer.paypal.com/classic-home/)
+![2 login to dash board](https://user-images.githubusercontent.com/79574031/124834303-d017e680-df7f-11eb-86f4-88fb724240ee.PNG)
+
+Create APP
+![3 create app](https://user-images.githubusercontent.com/79574031/124835374-8203e280-df81-11eb-990d-56114785b555.PNG)
+
+Navigate to app link and see client id there
+![click on app link](https://user-images.githubusercontent.com/79574031/124835489-b37cae00-df81-11eb-8f5c-5105147d18af.PNG)
+![get client id](https://user-images.githubusercontent.com/79574031/124835499-b9728f00-df81-11eb-9ae3-d209e817cf29.PNG)
+
+
+#### MAILCHIMP
+Sign up with mail chimp [here](https://login.mailchimp.com/signup/)
+MAILCHIMP_AUDIENCE
+Navigate to audience then all contacts. Hover over settings tabs and select audience names and defaults to get audience id.
+![7 audience](https://user-images.githubusercontent.com/79574031/124835947-69e09300-df82-11eb-9fb6-26763ce81e44.PNG)
+![8 audience names and defaults get client id](https://user-images.githubusercontent.com/79574031/124835959-6cdb8380-df82-11eb-8022-a05849472935.PNG)
+
+MAILCHIMP_API_KEY
+Go to this [page](https://mailchimp.com/help/about-api-keys/) to be directed to page where you can generate API key
+![9 get to page to generate api key](https://user-images.githubusercontent.com/79574031/124836262-fc813200-df82-11eb-967b-ee28f3b19e8a.PNG)
+![10 api keys](https://user-images.githubusercontent.com/79574031/124836225-e7a49e80-df82-11eb-904b-8f22737747ba.PNG)
+
+MAILCHIMP_API_SERVER
+the last 3 numbers on API key are the API server key and example would be us6
+
+
+#### MONGODB_URI
+Create account on [mongoDB](https://www.mongodb.com/), create new project, new user and password. Then head to clusters and click on connect.
+![11 mongo db uri](https://user-images.githubusercontent.com/79574031/124836721-c09a9c80-df83-11eb-8417-2470371baea4.PNG)
+
+See connection URI and append password where indicated and you can change default database name to something else
+![12 make sure you have user for cluster and add user password to where specified](https://user-images.githubusercontent.com/79574031/124836823-ef187780-df83-11eb-9499-219599dced95.PNG)
+
+
+#### TOKENS
+You can assign any value to ACCESS_TOKEN_SECRET and REFRESH_TOKEN_SECRET
+
+
+#### CLOUDINARY
+For environment variables needed to be exposed to the browser NEXT_PUBLIC is appended to the beginning of the key. Sign up for free [here](https://cloudinary.com/) with cloudinary
+
+NEXT_PUBLIC_CLOUD_NAME
+![name](https://user-images.githubusercontent.com/79574031/124837422-115ec500-df85-11eb-97e0-9d2ae737d4c7.jpg)
+
+NEXT_PUBLIC_CLOUD_API
+Get image upload URL from API base URL drop down
+![Inkedconfig_cloudinary api url no api keys_LI](https://user-images.githubusercontent.com/79574031/124837182-a3b29900-df84-11eb-9735-d7c5d2bd86ff.jpg)
+
+
+NEXT_PUBLIC_CLOUD_UPDATE
+Upload preset can be created on settings section of your dashboard
+![upload preset](https://user-images.githubusercontent.com/79574031/124836865-05263800-df84-11eb-8f49-5bedc977c0f2.PNG)
+
+
+
+<a name="manual"/>  
 
 ## `Manual`
-#### JSON WEB Tokens
+#### Install Node Modules
+![14 install node modules](https://user-images.githubusercontent.com/79574031/124837577-5e429b80-df85-11eb-958c-f20af561c315.PNG)
+
+#### Run npm start to run app
+![15 npm start](https://user-images.githubusercontent.com/79574031/124837649-8631ff00-df85-11eb-8fa6-0b129c08f692.PNG)
+
+#### Landing Page
+![16 landing page](https://user-images.githubusercontent.com/79574031/124837684-9f3ab000-df85-11eb-8391-cb5808142bdd.PNG)
+
+#### You can sign in
+![17 sign up form](https://user-images.githubusercontent.com/79574031/124837714-b11c5300-df85-11eb-9af1-83233501e5f9.PNG)
+
+#### You can sign up 
+![18 sign up](https://user-images.githubusercontent.com/79574031/124837776-d7da8980-df85-11eb-9bc4-ed6401ba5fe9.PNG)
+
+#### Loading component for async functions
+![19 loading](https://user-images.githubusercontent.com/79574031/124837874-ffc9ed00-df85-11eb-8d8f-634ccf0da352.PNG)
+
+#### Toast components for error and success messages
+![20 success](https://user-images.githubusercontent.com/79574031/124837924-1b34f800-df86-11eb-8919-da9f0af6935c.PNG)
+
+#### Config root account on MonogoDB
+Go back to MongoDB account and navigate to collection on clusters. Update a user to root true and role to admin
+![21 navigate to clusters then collections in mongodb](https://user-images.githubusercontent.com/79574031/124838075-64854780-df86-11eb-8287-37855f1a9ac6.PNG)
+![22 set root to true and role to admin](https://user-images.githubusercontent.com/79574031/124838083-67803800-df86-11eb-92ce-09e9582d111e.PNG)
+
+## Admin Account features:
+#### Create products
+![23 create product](https://user-images.githubusercontent.com/79574031/124838677-9f3baf80-df87-11eb-96bc-791e5c10824d.PNG)
+
+images uploaded to Cloudinary API and url stored to database
+![23 upload images](https://user-images.githubusercontent.com/79574031/124838785-d8741f80-df87-11eb-9a79-6fab21a7f6de.PNG)
+![24 add other fields](https://user-images.githubusercontent.com/79574031/124838818-e75ad200-df87-11eb-83b4-5fc1e3e028f6.PNG)
+![25 create](https://user-images.githubusercontent.com/79574031/124838841-ed50b300-df87-11eb-9f25-05ebc56f5e7b.PNG)
+
+#### Create, Update, Delete amd Read categories
+![26 can crud categories](https://user-images.githubusercontent.com/79574031/124838861-f80b4800-df87-11eb-9b75-e1e104278c98.PNG)
+
+#### Edit and Delete products
+![29 able to delete all products on database](https://user-images.githubusercontent.com/79574031/124839016-46204b80-df88-11eb-885e-15f76831aed2.PNG)
+
+update
+![30 update product](https://user-images.githubusercontent.com/79574031/124839058-5afcdf00-df88-11eb-8364-7b299178b3ac.PNG)
+
+#### View users, applications and orders
+Orders and applications can be updated to delivered or approved when clicking on more link.
+![40 admin](https://user-images.githubusercontent.com/79574031/124839415-0a39b600-df89-11eb-8fce-ef547b115fc3.PNG)
+
+#### Update and Delete users
+![42 update to admin](https://user-images.githubusercontent.com/79574031/124839601-5d136d80-df89-11eb-9b8b-87a75bf12fc9.PNG)
+![41 delete users](https://user-images.githubusercontent.com/79574031/124839611-61d82180-df89-11eb-9589-ce3fc283157f.PNG)
+
+## User Account features:
+
+#### Subscribe to mailing list
+![27 subscribe](https://user-images.githubusercontent.com/79574031/124838958-29841380-df88-11eb-8ccf-8285671eb451.PNG)
+![28 response](https://user-images.githubusercontent.com/79574031/124838999-3d2f7a00-df88-11eb-8887-1c350a24d52b.PNG)
+
+#### Apply to be be enlisted as volunteer
+![32 real apply to volunteer other was donation](https://user-images.githubusercontent.com/79574031/124839257-bd55df80-df88-11eb-8f7b-d818588c9864.PNG)
+
+
+#### Donate
+![31 apply to volunteer](https://user-images.githubusercontent.com/79574031/124839176-9bf4f380-df88-11eb-878a-9894ce257c3f.PNG)
+![31 paypal button](https://user-images.githubusercontent.com/79574031/124839248-b929c200-df88-11eb-8939-e25fa2114a3e.PNG)
+
+#### Shop
+![34 add to cart and go to cart](https://user-images.githubusercontent.com/79574031/124839307-d78fbd80-df88-11eb-9c21-8b74edf92d3a.PNG)
+![35 cart](https://user-images.githubusercontent.com/79574031/124839315-dd859e80-df88-11eb-8ce5-77a4cf6ad8b7.PNG)
+![36 cart details](https://user-images.githubusercontent.com/79574031/124839325-e0808f00-df88-11eb-9713-f3cc867b1336.PNG)
+![37 pay now](https://user-images.githubusercontent.com/79574031/124839328-e2e2e900-df88-11eb-82bd-4152c2705016.PNG)
+![38 success](https://user-images.githubusercontent.com/79574031/124839343-e6767000-df88-11eb-9586-ca2b6cd20f83.PNG)
+
+#### Profile
+can also upload image here, view applications and orders as well
+![39 profile](https://user-images.githubusercontent.com/79574031/124839497-30f7ec80-df89-11eb-90ad-f32cd80f75e0.PNG)
+
+
          
-<a name="test/>  
+<a name="test"/>  
 
 ## `Running Tests`
-#### JSON WEB Tokens
+Make sure server is running and on a different terminal run `npm run test` and the following tests will run:
+-Snapshot test to see if subscribe form renders correctly
+-A API Route Unit Test testing the mailList module that adds users to the mailing list
+-Client Module Unit Test testing getDate module that sends GET requests to REST API
          
 <a name="security"/>  
 
 ## `Security`
-the structure of the application allows for safety of sensitive information and API keys which have been hidden in the .env.local file as shown in the config files above. For environment variables needed to be exposed to the browser NEXT_PUBLIC is appended to the beginning of the key.
-
+the structure of the application allows for safety of sensitive information and API keys which have been hidden in the .env.local file as shown in the config files above. 
 #### Hashing
 passwords are not just saved in their raw state but are hashed with bcrypt for better security.
 ![hashing](https://user-images.githubusercontent.com/79574031/124820964-69d69800-df6e-11eb-8394-dc0713a4fb37.PNG)
@@ -101,7 +243,8 @@ Tokens generated with jwt to authenticate users in the auth middlware function.
 
 #### MongoDB
 MongoDB has secure features allowing to retrieve data from database but excluding sensitive information like passwords
-![Uploading exlude passwords when reading data from users collections.PNG…]()
+![exlude passwords when reading data from users collections](https://user-images.githubusercontent.com/79574031/124833471-85499f00-df7e-11eb-82bd-1781b40f9d0d.PNG)
+
 
 
 <a name="deployment"/>  
@@ -115,3 +258,13 @@ Link to deployed app can be found [here](https://thabisa-baby-house.vercel.app/)
 ## `Credits`
 
  * Author: [Lerato Mokgwabona](https://github.com/Lerato029)
+
+References
+Hovhannisyan, R., 2020. How to validate an email address in JavaScript. [Online] 
+Available at: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+[Accessed 6 July 2021].
+Madu, M. F., 2021. Loading Animation For Website using HTML & CSS. [Online] 
+Available at: https://codepen.io/fadzrinmadu/details/poeZNvq 
+[Accessed 7 July 2021].
+
+
