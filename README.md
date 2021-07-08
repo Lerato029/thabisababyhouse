@@ -6,13 +6,21 @@
 ## `Table of Contents`  
 
 [System Architectre](#architecture)  
+
 [System Requirements](#requirements) 
+
 [Configuration](#config)
+
 [Environment Variables](#hide)
+
 [Manual](#manual)
+
 [Testing](#test)
+
 [Security](#security)
+
 [Deployment](#deployed) 
+
 [Credits](#credits)  
 
 <a name="architecture"/>  
@@ -22,11 +30,7 @@
 Node and React are used for the  backend and frontend respectively as they both use Javascript thus making the development process easier and 
 MongoDB will be used for the API as it is cloud-based, scalable, and flexible. Next.js will be used to take advantage of the power of React while providing pages that will be rendered on the server and load faster to provide users with a pleasing experience on the dynamic site. 
 Next.js also provides SEO (Search Engine Optimization) ready sites to increase the visibility of the website on relevant searches ease in deployment with Vercel. Bootstrap will be used due to its responsive and beautiful templates.
-[Manual](#manual)
-[Testing](#test)
-[Security](#security)
-[Deployment](#deployed) 
-[Credits](#credits) 
+
 <a name="requirements"/>
 
 ## `System Requirements`
@@ -103,12 +107,12 @@ Navigate to audience then all contacts. Hover over settings tabs and select audi
 ![7 audience](https://user-images.githubusercontent.com/79574031/124835947-69e09300-df82-11eb-9fb6-26763ce81e44.PNG)
 ![8 audience names and defaults get client id](https://user-images.githubusercontent.com/79574031/124835959-6cdb8380-df82-11eb-8022-a05849472935.PNG)
 
-MAILCHIMP_API_KEY
+`MAILCHIMP_API_KEY`
 Go to this [page](https://mailchimp.com/help/about-api-keys/) to be directed to page where you can generate API key
 ![9 get to page to generate api key](https://user-images.githubusercontent.com/79574031/124836262-fc813200-df82-11eb-967b-ee28f3b19e8a.PNG)
 ![10 api keys](https://user-images.githubusercontent.com/79574031/124836225-e7a49e80-df82-11eb-904b-8f22737747ba.PNG)
 
-MAILCHIMP_API_SERVER
+`MAILCHIMP_API_SERVER`
 the last 3 numbers on API key are the API server key and example would be us6
 
 
