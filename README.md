@@ -7,7 +7,6 @@
 
 [System Architectre](#architecture)  
 [System Requirements](#requirements) 
-[System Requirements](#requirements) 
 [Configuration](#config)
 [Environment Variables](#hide)
 [Manual](#manual)
@@ -23,7 +22,11 @@
 Node and React are used for the  backend and frontend respectively as they both use Javascript thus making the development process easier and 
 MongoDB will be used for the API as it is cloud-based, scalable, and flexible. Next.js will be used to take advantage of the power of React while providing pages that will be rendered on the server and load faster to provide users with a pleasing experience on the dynamic site. 
 Next.js also provides SEO (Search Engine Optimization) ready sites to increase the visibility of the website on relevant searches ease in deployment with Vercel. Bootstrap will be used due to its responsive and beautiful templates.
-
+[Manual](#manual)
+[Testing](#test)
+[Security](#security)
+[Deployment](#deployed) 
+[Credits](#credits) 
 <a name="requirements"/>
 
 ## `System Requirements`
