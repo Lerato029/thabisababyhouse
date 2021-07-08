@@ -87,9 +87,12 @@ Then create .env.local file to add sensitive data
 ![13 add vars](https://user-images.githubusercontent.com/79574031/124834124-816a4c80-df7f-11eb-9e1e-872a9cd97656.PNG)
 
 <a name="hide"/>  
-### Environment Variables
-#### PAYPAL_CLIENT_ID
+
+#### Environment Variables
+
+#### `PAYPAL_CLIENT_ID`
 Sign up with paypal and create sandbox account [here](https://developer.paypal.com/classic-home/)
+
 ![2 login to dash board](https://user-images.githubusercontent.com/79574031/124834303-d017e680-df7f-11eb-86f4-88fb724240ee.PNG)
 
 Create APP
@@ -101,8 +104,8 @@ Navigate to app link and see client id there
 
 
 #### MAILCHIMP
-Sign up with mail chimp [here](https://login.mailchimp.com/signup/)
-MAILCHIMP_AUDIENCE
+Sign up with mail chimp [here](https://login.mailchimp.com/signup/) to get
+`MAILCHIMP_AUDIENCE`
 Navigate to audience then all contacts. Hover over settings tabs and select audience names and defaults to get audience id.
 ![7 audience](https://user-images.githubusercontent.com/79574031/124835947-69e09300-df82-11eb-9fb6-26763ce81e44.PNG)
 ![8 audience names and defaults get client id](https://user-images.githubusercontent.com/79574031/124835959-6cdb8380-df82-11eb-8022-a05849472935.PNG)
