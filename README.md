@@ -7,6 +7,7 @@
 
 [System Architectre](#architecture)  
 [System Requirements](#requirements) 
+[System Requirements](#requirements) 
 [Configuration](#config)
 [Environment Variables](#hide)
 [Manual](#manual)
