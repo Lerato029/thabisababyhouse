@@ -105,18 +105,25 @@ Navigate to app link and see client id there
 
 #### MAILCHIMP
 Sign up with mail chimp [here](https://login.mailchimp.com/signup/) to get
+
 `MAILCHIMP_AUDIENCE`
+
 Navigate to audience then all contacts. Hover over settings tabs and select audience names and defaults to get audience id.
+
 ![7 audience](https://user-images.githubusercontent.com/79574031/124835947-69e09300-df82-11eb-9fb6-26763ce81e44.PNG)
+
 ![8 audience names and defaults get client id](https://user-images.githubusercontent.com/79574031/124835959-6cdb8380-df82-11eb-8022-a05849472935.PNG)
 
 `MAILCHIMP_API_KEY`
+
 Go to this [page](https://mailchimp.com/help/about-api-keys/) to be directed to page where you can generate API key
+
 ![9 get to page to generate api key](https://user-images.githubusercontent.com/79574031/124836262-fc813200-df82-11eb-967b-ee28f3b19e8a.PNG)
+
 ![10 api keys](https://user-images.githubusercontent.com/79574031/124836225-e7a49e80-df82-11eb-904b-8f22737747ba.PNG)
 
 `MAILCHIMP_API_SERVER`
-the last 3 numbers on API key are the API server key and example would be us6
+the last 3 numbers on API key are the API server key an example would be us6
 
 
 #### `MONGODB_URI`
