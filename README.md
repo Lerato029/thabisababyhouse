@@ -119,7 +119,7 @@ Go to this [page](https://mailchimp.com/help/about-api-keys/) to be directed to 
 the last 3 numbers on API key are the API server key and example would be us6
 
 
-#### MONGODB_URI
+#### `MONGODB_URI`
 Create account on [mongoDB](https://www.mongodb.com/), create new project, new user and password. Then head to clusters and click on connect.
 ![11 mongo db uri](https://user-images.githubusercontent.com/79574031/124836721-c09a9c80-df83-11eb-8417-2470371baea4.PNG)
 
@@ -128,22 +128,27 @@ See connection URI and append password where indicated and you can change defaul
 
 
 #### TOKENS
-You can assign any value to ACCESS_TOKEN_SECRET and REFRESH_TOKEN_SECRET
+You can assign any value to `ACCESS_TOKEN_SECRET` and `REFRESH_TOKEN_SECRET`
 
 
 #### CLOUDINARY
 For environment variables needed to be exposed to the browser NEXT_PUBLIC is appended to the beginning of the key. Sign up for free [here](https://cloudinary.com/) with cloudinary
 
-NEXT_PUBLIC_CLOUD_NAME
+`NEXT_PUBLIC_CLOUD_NAME`
+
 ![name](https://user-images.githubusercontent.com/79574031/124837422-115ec500-df85-11eb-97e0-9d2ae737d4c7.jpg)
 
-NEXT_PUBLIC_CLOUD_API
+`NEXT_PUBLIC_CLOUD_API`
+
 Get image upload URL from API base URL drop down
+
 ![Inkedconfig_cloudinary api url no api keys_LI](https://user-images.githubusercontent.com/79574031/124837182-a3b29900-df84-11eb-9735-d7c5d2bd86ff.jpg)
 
 
-NEXT_PUBLIC_CLOUD_UPDATE
+`NEXT_PUBLIC_CLOUD_UPDATE`
+
 Upload preset can be created on settings section of your dashboard
+
 ![upload preset](https://user-images.githubusercontent.com/79574031/124836865-05263800-df84-11eb-8f49-5bedc977c0f2.PNG)
 
 
