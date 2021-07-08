@@ -163,11 +163,18 @@ Upload preset can be created on settings section of your dashboard
 <a name="manual"/>  
 
 ## `Manual`
-#### Install Node Modules
-![14 install node modules](https://user-images.githubusercontent.com/79574031/124837577-5e429b80-df85-11eb-958c-f20af561c315.PNG)
+#### Install Node Modules 
+type `npm install`
 
-#### Run npm start to run app
-![15 npm start](https://user-images.githubusercontent.com/79574031/124837649-8631ff00-df85-11eb-8fa6-0b129c08f692.PNG)
+![14 install node modules](https://user-images.githubusercontent.com/79574031/124899192-2ae12a80-dfe0-11eb-9c1e-f338c65eae52.PNG)
+
+
+
+#### Run `npm start` to run app
+
+![15 npm start](https://user-images.githubusercontent.com/79574031/124899220-316fa200-dfe0-11eb-9cd7-cf57fa1e9903.PNG)
+
+
 
 #### Landing Page
 ![16 landing page](https://user-images.githubusercontent.com/79574031/124837684-9f3ab000-df85-11eb-8391-cb5808142bdd.PNG)
